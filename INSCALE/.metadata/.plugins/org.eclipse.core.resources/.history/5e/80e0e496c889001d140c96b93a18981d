@@ -1,0 +1,65 @@
+package com.automatuon.testcases;
+
+
+import java.io.IOException;
+
+import org.openqa.selenium.support.PageFactory;
+
+import org.testng.annotations.Test;
+
+import com.automation.pages.AddCustomerPage;
+import com.automation.pages.AddDataPage;
+import com.automation.pages.BaseClass;
+import com.automation.pages.CustomerPage;
+import com.automation.pages.ManagerPage;
+
+import com.automation.utility.XLUtility;
+
+
+public class AddDataTest extends BaseClass{
+	
+	
+
+	
+	@Test(priority = 0)
+	public void LoginManager()
+	{
+		ManagerPage managerpage=PageFactory.initElements(driver, ManagerPage.class);
+		managerpage.manager();
+	}
+	@Test (priority = 1)
+	public void LandAddCustomer()
+	{
+	AddCustomerPage addcustomerpage=PageFactory.initElements(driver,AddCustomerPage.class);
+	addcustomerpage.addCut();
+	
+	}
+	
+	
+	
+	
+	
+	@Test(priority = 2)
+	public void AddCustomer() throws IOException
+	{
+	
+		
+	AddDataPage adddatapage=PageFactory.initElements(driver,AddDataPage.class);
+	adddatapage.addingData("CustFirstName","CustLastName", "CustPostcode");
+	
+	}
+	
+	@Test(priority = 2)
+	 public void Customer()
+	 {
+		CustomerPage customerpage=PageFactory.initElements(driver,CustomerPage.class);
+		customerpage.customer();
+	 }
+	
+	
+	}
+
+
+
+	
+

@@ -1,0 +1,6 @@
+Browser=Chrome
+qaURL=https://www.globalsqa.com/angularJs-protractor/BankingProject/
+addData=https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/addCust
+FristName="Christopher"
+LastName="DDD"
+Postcode="HH"

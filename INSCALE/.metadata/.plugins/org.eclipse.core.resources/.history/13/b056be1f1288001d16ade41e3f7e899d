@@ -1,0 +1,44 @@
+package com.automation.utility;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class BrowserFactory {
+	
+public static WebDriver startApplication(WebDriver driver, String browserName, String applicationURL) {
+	
+	if (browserName.equals("Chrome"))
+	{
+		System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().pageLoadTimeout(30,TimeUnit.SECONDS);
+	}
+	else if (browserName.equals("Firefox"))
+	{
+		System.setProperty("webdriver.firefox.driver", "./firefoxdriver.exe");
+		driver =new FirefoxDriver();
+		driver.manage().timeouts().pageLoadTimeout(30,TimeUnit.SECONDS;
+		
+	}
+	
+	else if (browserName.equals("IE"))
+	{
+		
+		
+	}
+	else 
+	{
+		System.out.println("We do not support this browser");
+	}
+	driver.manage().window().maximize();
+	driver.get(applicationURL);
+}
+
+public static void quitBroswer() {
+	
+	
+}
+}

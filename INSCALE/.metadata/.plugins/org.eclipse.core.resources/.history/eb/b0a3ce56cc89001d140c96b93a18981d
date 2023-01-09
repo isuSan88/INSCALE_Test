@@ -1,0 +1,73 @@
+package com.automatuon.testcases;
+
+
+import java.io.IOException;
+
+import org.openqa.selenium.support.PageFactory;
+
+import org.testng.annotations.Test;
+
+import com.automation.pages.AddCustomerPage;
+import com.automation.pages.AddDataPage;
+import com.automation.pages.BaseClass;
+import com.automation.pages.CustomerPage;
+import com.automation.pages.DeleteCustomerPage;
+import com.automation.pages.ManagerPage;
+
+import com.automation.utility.XLUtility;
+
+
+public class AddDataTest extends BaseClass{
+	
+	
+
+	
+	@Test(priority = 0)
+	public void LoginManager()
+	{
+		ManagerPage managerpage=PageFactory.initElements(driver, ManagerPage.class);
+		managerpage.manager();
+	}
+	@Test (priority = 1)
+	public void LandAddCustomer()
+	{
+	AddCustomerPage addcustomerpage=PageFactory.initElements(driver,AddCustomerPage.class);
+	addcustomerpage.addCut();
+	
+	}
+	
+	
+	
+	
+	
+	@Test(priority = 2)
+	public void AddCustomer() throws IOException
+	{
+	
+		XLUtility xladddata = new XLUtility();
+	AddDataPage adddatapage=PageFactory.initElements(driver,AddDataPage.class);
+	adddatapage.addingData(xladddata.getCellData("Customer", 2, 0), xladddata.getCellData("Customer", 2, 1), xladddata.getCellData("Customer", 2, 2));
+
+	
+	}
+	
+	@Test(priority = 3)
+	 public void Customer()
+	 {
+		CustomerPage customerpage=PageFactory.initElements(driver,CustomerPage.class);
+		customerpage.customer();
+	 }
+	
+	public void DeleteCustomer()
+	{
+		DeleteCustomerPage deletecustomer= PageFactory.initElements(driver, DeleteCustomerPage.class);
+		deletecustomer.deletecustomer("FirstName", "LastName", Postcode");
+		
+	}
+	
+	}
+
+
+
+	
+

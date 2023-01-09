@@ -1,0 +1,24 @@
+package com.automation.utility;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.poi.xssf.usermodel.*;
+
+public class ReadingExcel {
+
+	public static void main(String[] args) throws FileNotFoundException {
+
+		String excelFilePath=("./TestData/Data.xlsx");
+		FileInputStream inputstream=new FileInputStream(excelFilePath);
+		
+		XSSFWorkbook workbook=new XSSFWorkbook(inputstream);
+		
+		
+		
+		
+		
+		
+	}
+
+}

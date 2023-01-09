@@ -1,0 +1,27 @@
+package com.automation.pages;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
+
+import com.automation.utility.BrowserFactory;
+import com.automation.utility.ExcelDataProvider;
+
+public class BaseClass {
+	public WebDriver driver;
+	public ExcelDataProvider excel;
+	public void setUpSuite()
+	{
+		
+		 excel=new ExcelDataProvider();
+		
+	}
+	
+	@BeforeClass
+	public void setup(){
+		driver=BrowserFactory.startApplication(driver, "Chrome", "https://www.globalsqa.com/angularJs-protractor/BankingProject/");
+			
+		
+	}
+	
+
+}

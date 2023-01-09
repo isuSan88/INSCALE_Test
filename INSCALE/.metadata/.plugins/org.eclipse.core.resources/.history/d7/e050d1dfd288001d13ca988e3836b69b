@@ -1,0 +1,43 @@
+package com.automation.pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class AddDataPage {
+	
+	WebDriver driver;
+	public AddDataPage(WebDriver ldriver) 
+	{
+		this.driver=ldriver;
+	
+	}
+	@FindBy(xpath="//input[@ng-model='fName']") WebElement firstname;
+	
+	@FindBy(xpath="//input[@ng-model='lName']") WebElement lastname;
+	
+	@FindBy(xpath="//input[@ng-model='postCd']") WebElement postcode;
+	
+	@FindBy(xpath="//button[@class='btn btn-default' and text()='Add Customer']") WebElement addingCustomerButton;
+
+	@Test(dataProvider="AddCustomer")
+	public void addingData(String CustFirstName, String CustLastName, String CustPostCode)
+	{
+		firstname.sendKeys(CustFirstName);
+		lastname.sendKeys(CustLastName);
+		postcode.sendKeys(CustPostCode);
+		addingCustomerButton.click();
+		driver.switchTo().alert().accept();
+	}
+
+	@DataProvider(name="AddCustomer")
+	public String[][] getData()
+	{
+		String addData[][]= {};
+		return addData;
+		
+		
+	}
+}

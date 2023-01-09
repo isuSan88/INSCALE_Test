@@ -1,0 +1,48 @@
+package com.automatuon.testcases;
+
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import org.testng.annotations.Test;
+
+import com.automation.pages.AddCustomerPage;
+import com.automation.pages.AddDataPage;
+import com.automation.pages.BaseClass;
+import com.automation.pages.ManagerPage;
+import com.automation.utility.ExcelDataProvider;
+
+
+public class AddDataTest extends BaseClass{
+	
+	WebDriver driver;
+
+	
+	@Test(priority = 0)
+	public void LoginManager()
+	{
+		ManagerPage managerpage=PageFactory.initElements(driver, ManagerPage.class);
+		managerpage.manager();
+	}
+	@Test (priority = 1)
+	public void LandAddCustomer()
+	{
+	AddCustomerPage addcustomerpage=PageFactory.initElements(driver,AddCustomerPage.class);
+	addcustomerpage.addCut();
+	
+	}
+	@Test(priority = 3)
+	public void AddData() 
+	{
+		
+	ExcelDataProvider excel=new ExcelDataProvider();
+	excel.getStringData("Customer", 0, 0);
+	AddDataPage addDataPage = PageFactory.initElements(driver,AddDataPage.class);	
+	addDataPage.addingData(excel.getStringData("Customer", 0, 0),excel.getStringData("Customer", 0, 1),excel.getStringData("Customer", 0, 2));
+	driver.switchTo().alert().accept();	
+	}
+
+
+
+	
+}

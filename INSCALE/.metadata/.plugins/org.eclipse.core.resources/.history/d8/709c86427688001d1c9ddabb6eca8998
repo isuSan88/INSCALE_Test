@@ -1,0 +1,14 @@
+package com.automation.pages;
+
+import org.openqa.selenium.WebDriver;
+
+public class AddDataPage {
+	
+	WebDriver driver;
+	public AddDataPage(WebDriver ldriver) 
+	{
+		this.driver=ldriver;
+	
+	}
+
+}
